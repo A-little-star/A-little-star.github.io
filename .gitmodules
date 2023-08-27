@@ -1,0 +1,3 @@
+[submodule "themes/.git"]
+	path = themes/.git
+	url = git@github.com:A-little-star/hexo-theme-aircloud.git
