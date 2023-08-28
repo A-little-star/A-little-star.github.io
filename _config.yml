@@ -4,21 +4,54 @@
 
 # Site
 title: 李星辰的个人主页
-subtitle: ''
+subtitle: 'Stay hungry, stay foolish.'
 description: ''
 keywords:
 author: 李星辰
-language: zh-Hans
+language: zh
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+# url: https://A-little-star.github.io
+# url: https://A-little-star.github.io
+url: http://localhost:4000
+root: /
 permalink: :year/:month/:day/:title/
+# permalink: :titile/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# SNS settings
+# 一些社交平台
+github_username:  A-little-star
+
+# 头像
+sidebar-avatar: img/head.jpg
+# 头像圆角
+avatar_style:
+  radius: true
+
+# comment settings
+comment:
+  type: giscus
+  script: |
+      <script src="https://giscus.app/client.js"
+          data-repo="aircloud/hexo-aircloud-blog"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkxMjkwNDgyNjg="
+          data-category="Announcements"
+          data-category-id="DIC_kwDOB7EezM4COhKJ"
+          data-mapping="title"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+      </script>
 
 # Directory
 source_dir: source
