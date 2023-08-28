@@ -34,6 +34,11 @@ sidebar-avatar: img/head.jpg
 avatar_style:
   radius: true
 
+# search settings
+search:
+  path: search.json
+  field: post
+
 # comment settings
 comment:
   type: giscus
