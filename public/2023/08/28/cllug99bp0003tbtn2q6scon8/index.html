@@ -199,10 +199,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server  <span class="comment"># 可以简写为hexo s</span></span><br></pre></td></tr></table></figure>
 
 <p>这条命令会在本地开启一个服务器，提示你可以通过给定的URL访问网页，如下图所示：</p>
-<p><img src="C:\Users\86186\AppData\Roaming\Typora\typora-user-images\1693197974225.png" alt="1693197974225"></p>
+<p><img src="/img/blog/1693197974225" alt="1693197974225"></p>
 <p>默认的网址为<a target="_blank" rel="noopener" href="http://localhost:4000/%E3%80%82">http://localhost:4000/。</a></p>
 <p>看到这样的画面，证明配置成功：</p>
-<p> <img src="https://img-blog.csdnimg.cn/img_convert/b26252eb40bc11f27ab2808484f82dd0.png" alt="img"> </p>
+<p> <img src="/../img/blog/b26252eb40bc11f27ab2808484f82dd0.png" alt="img"> </p>
 <h4 id="2-安装主题"><a href="#2-安装主题" class="headerlink" title="2. 安装主题"></a>2. 安装主题</h4><p>Hexo的主题管理非常的方便易用，更换主题可以采用如下方式：</p>
 <p>在浏览器中搜索hexo theme，进入官网的主题页面，里面有300+种主题，你可以选择一种自己喜欢的主题。</p>
 <p>这里我使用的主题是Aircloud。</p>
@@ -210,15 +210,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/aircloud/hexo-theme-aircloud.git themes/aircloud</span><br></pre></td></tr></table></figure>
 
 <p>完成之后，进入到themes文件夹，可以看到里面多了一个aircloud。</p>
-<p><img src="C:\Users\86186\AppData\Roaming\Typora\typora-user-images\1693198425618.png" alt="1693198425618"></p>
+<p><img src="/../img/blog/1693198425618.png" alt="1693198425618"></p>
 <p>然后进入到项目根目录，修改其中的_config.yml文件，将以theme: 开头的行改为theme: aircloud</p>
-<p><img src="C:\Users\86186\AppData\Roaming\Typora\typora-user-images\1693198510376.png" alt="1693198510376"></p>
+<p><img src="/../img/blog/1693198510376.png" alt="1693198510376"></p>
 <p>然后再运行hexo s进行本地测试。</p>
 <p>会发现主题发生了变化。</p>
 <h4 id="3-修改博客内容"><a href="#3-修改博客内容" class="headerlink" title="3.修改博客内容"></a>3.修改博客内容</h4><p>博客上显示的基本信息基本上都在_config.yml文件中设置，只需要在 _config.yml 文件中修改对应的信息，既可以在网站上呈现出不同的信息，对于具体的主题，每个主题的github仓库的README.md文件中都会给出比较详细的配置方式。</p>
 <p>最后，<strong>很关键的一步！！！</strong></p>
 <p>在_config.yml中的Deployment部分中，将远程仓库地址添加上去：</p>
-<p><img src="C:\Users\86186\AppData\Roaming\Typora\typora-user-images\1693198897239.png" alt="1693198897239"></p>
+<p><img src="/img/blog/1693198897239.png" alt="1693198897239"></p>
 <h3 id="三、将本地项目部署到远程仓库"><a href="#三、将本地项目部署到远程仓库" class="headerlink" title="三、将本地项目部署到远程仓库"></a>三、将本地项目部署到远程仓库</h3><h4 id="1-安装部署工具"><a href="#1-安装部署工具" class="headerlink" title="1. 安装部署工具"></a>1. 安装部署工具</h4><p>继续在本地的项目根目录安装部署工具：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 

@@ -17,8 +17,8 @@ timezone: ''
 url: https://A-little-star.github.io
 # url: http://localhost:4000
 root: /
-permalink: :year/:month/:day/:title/
-# permalink: :titile/
+# permalink: :year/:month/:day/:title/
+permalink: :year/:month/:day/:id/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks

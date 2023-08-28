@@ -99,13 +99,13 @@ hexo server  # 可以简写为hexo s
 
 这条命令会在本地开启一个服务器，提示你可以通过给定的URL访问网页，如下图所示：
 
-![1693197974225](C:\Users\86186\AppData\Roaming\Typora\typora-user-images\1693197974225.png)
+![1693197974225](/img/blog/1693197974225)
 
 默认的网址为http://localhost:4000/。
 
 看到这样的画面，证明配置成功：
 
- ![img](https://img-blog.csdnimg.cn/img_convert/b26252eb40bc11f27ab2808484f82dd0.png) 
+ ![img](../img/blog/b26252eb40bc11f27ab2808484f82dd0.png) 
 
 #### 2. 安装主题
 
@@ -123,11 +123,11 @@ git clone https://github.com/aircloud/hexo-theme-aircloud.git themes/aircloud
 
 完成之后，进入到themes文件夹，可以看到里面多了一个aircloud。
 
-![1693198425618](C:\Users\86186\AppData\Roaming\Typora\typora-user-images\1693198425618.png)
+![1693198425618](../img/blog/1693198425618.png)
 
 然后进入到项目根目录，修改其中的_config.yml文件，将以theme: 开头的行改为theme: aircloud
 
-![1693198510376](C:\Users\86186\AppData\Roaming\Typora\typora-user-images\1693198510376.png)
+![1693198510376](../img/blog/1693198510376.png)
 
 然后再运行hexo s进行本地测试。
 
@@ -141,7 +141,7 @@ git clone https://github.com/aircloud/hexo-theme-aircloud.git themes/aircloud
 
 在_config.yml中的Deployment部分中，将远程仓库地址添加上去：
 
-![1693198897239](C:\Users\86186\AppData\Roaming\Typora\typora-user-images\1693198897239.png)
+![1693198897239](/img/blog/1693198897239.png)
 
 ### 三、将本地项目部署到远程仓库
 
