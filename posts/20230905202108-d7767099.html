@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        什么是Docker？怎样使用？一个解决复杂的环境配置问题的利器！ - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Stay hungry, stay foolish. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/head.jpg" />
+        </div>
+        <div class="name">
+            <i>李星辰</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Docker%EF%BC%9F"><span class="toc-text">如何使用Docker？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Docker%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">一、Docker是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Docker%E8%83%BD%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">二、Docker能用来做什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">容器和虚拟机的区别？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Docker%E6%80%8E%E4%B9%88%E7%8E%A9%EF%BC%9F"><span class="toc-text">三、Docker怎么玩？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E5%91%BD%E4%BB%A4"><span class="toc-text">镜像命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E4%B8%8B%E8%BD%BD%E7%9A%84%E9%95%9C%E5%83%8F"><span class="toc-text">1.查看本地下载的镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BB%8E%E8%BF%9C%E7%A8%8B%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="toc-text">2.从远程拉取镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F-%E5%AE%B9%E5%99%A8-%E6%95%B0%E6%8D%AE%E5%8D%B7%E6%89%80%E5%8D%A0%E7%9A%84%E7%A9%BA%E9%97%B4"><span class="toc-text">3.查看镜像&#x2F;容器&#x2F;数据卷所占的空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F"><span class="toc-text">4.删除镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%90%AF%E5%8A%A8%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%AE%B9%E5%99%A8"><span class="toc-text">5.启动交互式容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%AE%B9%E5%99%A8%EF%BC%88%E5%8C%85%E6%8B%AC%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E7%9A%84%E5%92%8C%E6%B2%A1%E6%9C%89%E8%BF%90%E8%A1%8C%E7%9A%84%EF%BC%89"><span class="toc-text">6.查看当前容器（包括正在运行的和没有运行的）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E5%AE%B9%E5%99%A8"><span class="toc-text">7.删除指定容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E9%80%80%E5%87%BA%E5%BD%93%E5%89%8D%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%AE%B9%E5%99%A8"><span class="toc-text">8.退出当前交互式容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E9%87%8D%E6%96%B0%E6%8E%A5%E5%85%A5up%E7%8A%B6%E6%80%81%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-text">9.重新接入up状态的容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E5%90%AF%E5%8A%A8%E5%AE%88%E6%8A%A4%E5%BC%8F%E5%AE%B9%E5%99%A8"><span class="toc-text">10.启动守护式容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-%E5%B0%86%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E6%8B%B7%E8%B4%9D%E8%87%B3%E6%9C%AC%E5%9C%B0"><span class="toc-text">11.将容器中的文件拷贝至本地</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%EF%BC%88%E7%94%A8%E4%BA%8E%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E5%AE%B9%E5%99%A8%EF%BC%89"><span class="toc-text">12.容器的导入导出（用于备份整个容器）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-%E5%B0%86%E6%9C%AC%E5%9C%B0%E7%9A%84%E5%AE%B9%E5%99%A8%E6%8F%90%E4%BA%A4%E4%B8%BA%E9%95%9C%E5%83%8F"><span class="toc-text">13.将本地的容器提交为镜像</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker%E9%95%9C%E5%83%8F"><span class="toc-text">Docker镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#docker-commit"><span class="toc-text">docker commit</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Stay hungry, stay foolish. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        什么是Docker？怎样使用？一个解决复杂的环境配置问题的利器！
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-09-05 20:21:08</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="如何使用Docker？"><a href="#如何使用Docker？" class="headerlink" title="如何使用Docker？"></a>如何使用Docker？</h1><h2 id="一、Docker是什么？"><a href="#一、Docker是什么？" class="headerlink" title="一、Docker是什么？"></a>一、Docker是什么？</h2><p>开发软件时，离不开各种各样的配置和环境，软件对于配置和环境的依赖是非常严重且重要的，又是运行环境稍微不同，代码就不见得能跑起来。如何解决令人头疼的版本、配置问题？</p>
+<p>答案是使用Docker。Docker之所以发展如此迅速，也是因为它对此给出了一个标准化的解决方案——系统平滑移植、容器虚拟化技术。</p>
+<p>配置环境相当麻烦，换一台机器，就要重来一次，费时费力，很多人想到，能不能从根本上解决问题，软件可以带环境安装？也就是说，安装的时候，把原始环境一模一样地复制过来。开发人员利用Docker可以消除写作编码时“在我的机器上可以正常工作”的问题。</p>
+<p>一句话总结，Docker是一个解决了运行环境和配置为题的软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术。</p>
+<h2 id="二、Docker能用来做什么？"><a href="#二、Docker能用来做什么？" class="headerlink" title="二、Docker能用来做什么？"></a>二、Docker能用来做什么？</h2><p>“一次镜像，处处运行”。</p>
+<p>Docker容器是在操作系统层面上实现虚拟化，直接复用本地主机的操作系统，而传统虚拟机则是在硬件层面实现虚拟化。与传统的虚拟机相比，Docker优势体现为启动速度快、占用体积小。</p>
+<h3 id="容器和虚拟机的区别？"><a href="#容器和虚拟机的区别？" class="headerlink" title="容器和虚拟机的区别？"></a>容器和虚拟机的区别？</h3><p>虚拟机的缺点：资源占用多、冗余步骤多、启动慢。虚拟机会模拟整个操作系统。</p>
+<p>Linux容器（LXC）与虚拟机不同，不需要捆绑一整套操作系统，只需要软件工作所需的库资源和设置。</p>
+<ul>
+<li>传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整的操作系统，在该系统上再运行所需的应用进程；</li>
+<li>容器内的应用进程直 接运行于宿主的内核，容器内没有自己的内核<strong>且也没有进行硬件虚拟</strong>。因此容器要比传统虚拟机更为轻便。</li>
+<li>每个容器之间相互隔离，每个容器  有自己的文件系统，容器之间进程不会相互影响。</li>
+</ul>
+<h2 id="三、Docker怎么玩？"><a href="#三、Docker怎么玩？" class="headerlink" title="三、Docker怎么玩？"></a>三、Docker怎么玩？</h2><p>Docker的三大要素：镜像、容器、仓库。</p>
+<h3 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h3><h4 id="1-查看本地下载的镜像"><a href="#1-查看本地下载的镜像" class="headerlink" title="1.查看本地下载的镜像"></a>1.查看本地下载的镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-从远程拉取镜像"><a href="#2-从远程拉取镜像" class="headerlink" title="2.从远程拉取镜像"></a>2.从远程拉取镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 镜像名字</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-查看镜像-容器-数据卷所占的空间"><a href="#3-查看镜像-容器-数据卷所占的空间" class="headerlink" title="3.查看镜像&#x2F;容器&#x2F;数据卷所占的空间"></a>3.查看镜像&#x2F;容器&#x2F;数据卷所占的空间</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker system <span class="built_in">df</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-删除镜像"><a href="#4-删除镜像" class="headerlink" title="4.删除镜像"></a>4.删除镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi 镜像名字/镜像ID</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-启动交互式容器"><a href="#5-启动交互式容器" class="headerlink" title="5.启动交互式容器"></a>5.启动交互式容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it 容器名</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-查看当前容器（包括正在运行的和没有运行的）"><a href="#6-查看当前容器（包括正在运行的和没有运行的）" class="headerlink" title="6.查看当前容器（包括正在运行的和没有运行的）"></a>6.查看当前容器（包括正在运行的和没有运行的）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-删除指定容器"><a href="#7-删除指定容器" class="headerlink" title="7.删除指定容器"></a>7.删除指定容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> 容器ID</span><br><span class="line">参数：</span><br><span class="line">-f 强制删除</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-退出当前交互式容器"><a href="#8-退出当前交互式容器" class="headerlink" title="8.退出当前交互式容器"></a>8.退出当前交互式容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span>    <span class="comment"># 会退出容器</span></span><br><span class="line">或</span><br><span class="line">ctrl+p+q  <span class="comment"># 不会退出容器</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="9-重新接入up状态的容器"><a href="#9-重新接入up状态的容器" class="headerlink" title="9.重新接入up状态的容器"></a>9.重新接入up状态的容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 容器ID   <span class="comment"># 会启用一个新的进程，因此exit不会退出容器</span></span><br><span class="line">docker attach 容器ID   <span class="comment"># 接入推出之前的进程，不会启用新的进程，因此exit会退出容器</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="10-启动守护式容器"><a href="#10-启动守护式容器" class="headerlink" title="10.启动守护式容器"></a>10.启动守护式容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d 容器名</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-将容器中的文件拷贝至本地"><a href="#11-将容器中的文件拷贝至本地" class="headerlink" title="11.将容器中的文件拷贝至本地"></a>11.将容器中的文件拷贝至本地</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> 容器ID:&lt;src <span class="built_in">dir</span>&gt; &lt;direct <span class="built_in">dir</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="12-容器的导入导出（用于备份整个容器）"><a href="#12-容器的导入导出（用于备份整个容器）" class="headerlink" title="12.容器的导入导出（用于备份整个容器）"></a>12.容器的导入导出（用于备份整个容器）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">export</span> 容器ID &gt; xxx.tar <span class="comment"># 将容器导出为.tar文件包</span></span><br><span class="line"><span class="built_in">cat</span> xxx.tar | docker import - 镜像用户/镜像名：镜像版本号</span><br></pre></td></tr></table></figure>
+
+<h4 id="13-将本地的容器提交为镜像"><a href="#13-将本地的容器提交为镜像" class="headerlink" title="13.将本地的容器提交为镜像"></a>13.将本地的容器提交为镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m=<span class="string">&quot;提交的描述信息&quot;</span> -a=<span class="string">&quot;作者&quot;</span> 容器ID 要创建的目标镜像名:[标签名]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Docker镜像"><a href="#Docker镜像" class="headerlink" title="Docker镜像"></a>Docker镜像</h3><h4 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h4><p>采用UnionFS（联合文件系统）层层叠加。所有镜像都有一个父镜像生成，父镜像只包含一些较为底层的内容，子镜像会继承父镜像的内容，并且拓展一些新的内容，所有的镜像就是这样产生的。</p>
+<p>镜像分层的最的好处是共享资源，方便复制迁移，就是为了复用。</p>
+<h4 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m=<span class="string">&quot;提交的描述信息&quot;</span> -a=<span class="string">&quot;作者&quot;</span> 容器ID 要创建的目标镜像名:[标签名]</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/A-little-star">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://giscus.app/client.js"
+    data-repo="aircloud/hexo-aircloud-blog"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxMjkwNDgyNjg="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOB7EezM4COhKJ"
+    data-mapping="title"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+
+
+</html>
